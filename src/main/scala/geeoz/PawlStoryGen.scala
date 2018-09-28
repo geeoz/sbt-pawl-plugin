@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 Geeoz, and/or its affiliates. All rights reserved.
+ * Copyright © 2018 Geeoz, and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * The Research Projects is dual-licensed under the GNU General Public
