@@ -67,7 +67,9 @@ import java.util.{Locale, ResourceBundle}
 import sbt._
 import treehugger.forest._
 import treehuggerDSL._
-import scala.collection.convert.wrapAsScala.asScalaSet
+
+import scala.collection.convert.ImplicitConversionsToScala._
+
 
 /** This class generates all necessary utility classes for PAWL Framework.
   */
@@ -82,22 +84,21 @@ object PawlBundleGen {
     log.debug("Creating directory " + genDir)
     IO.createDirectory(genDir)
 
-    implicit val dir = resDir
+    implicit val dir: File = resDir
     val resources = List(
       gen("bundle", loader, pack)).flatten
 
     if (resources isEmpty) {
       Seq()
     } else {
-      resources.map(map => {
-        map.map(entry => {
+      resources.flatMap(_.map(entry => {
           val file =
             genDir / s"${pack.replaceAll("\\.", File.separator)}/${entry._1}.scala"
           log.info("Generating " + file.getPath)
           IO.write(file, treeToString(entry._2))
           file
         }).toSeq
-      }).toSeq.flatten
+      )
     }
   }
 
