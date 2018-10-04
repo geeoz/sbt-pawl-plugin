@@ -14,7 +14,7 @@ This will build the plugin, publish it to a local artifactory repository, then r
 
 1. Download the source code from git: `git clone git@github.com:geeoz/sbt-pawl-plugin.git`
 2. Open a command line in the cloned directory: `cd ./sbt-pawl-plugin`
-3. Now run the sbt to build the plugin: `sbt publish-local`
+3. Now run the sbt to build the plugin: `sbt publishLocal`
 
 ### Configuration
   - `build.sbt` - sbt file with task definitions

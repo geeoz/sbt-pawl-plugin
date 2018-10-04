@@ -69,44 +69,16 @@ object Dependencies {
 
   // A library to code Scala programmatically
   val treehuggerVersion             = "0.4.3"     // MIT
-  // Maven Frontend Plugin Core
-  val frontendPluginCoreVersion     = "0.0.23"    // ApacheV2
-  // This project provides the building blocks for web oriented sbt plugins.
-  val sbtWebVersion                 = "1.4.3"     // ApacheV2
-  // Simple Logging Facade for Java (SLF4J)
-  val slf4jVersion                  = "1.7.12"    // MIT
-  // PMD is a source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth.
-  val pmdVersion                    = "5.3.3"     // BSD-style
-  // ModeShape is a JCR repository implementation with support for federation and sequencing.
-  val jcrVersion                    = "2.0"
-  val modeshapeVersion              = "4.5.0.Final"   // ApacheV2
 
   object Compile {
     val treehugger            = "com.eed3si9n" %% "treehugger" % treehuggerVersion
-    val frontendPluginCore    = "com.github.eirslett" % "frontend-plugin-core" % frontendPluginCoreVersion
-    val slf4j                 = "org.slf4j" % "slf4j-log4j12" % slf4jVersion
-    val pmdDist               = "net.sourceforge.pmd" % "pmd-dist" % pmdVersion
-
-    val jcr                   = "javax.jcr" % "jcr" % jcrVersion
-    val modeshapeCommon       = "org.modeshape" % "modeshape-common" % modeshapeVersion
-    val modeshapeJcr          = "org.modeshape" % "modeshape-jcr" % modeshapeVersion
-    val modeshapeSchematic    = "org.modeshape" % "modeshape-schematic" % modeshapeVersion
-    val jcrSeq                = Seq(jcr, modeshapeCommon, modeshapeJcr, modeshapeSchematic)
   }
 
   import Compile._
 
   val l = libraryDependencies
 
-  // Dependencies for sbt-frontend plugin
-  val frontend = l ++= Seq(frontendPluginCore, slf4j)
-
-  // Dependencies for sbt-atom plugin
-  val atom = l ++= Seq(treehugger) ++ jcrSeq
-
   // Dependencies for sbt-pawl plugin
   val pawl = l ++= Seq(treehugger)
-
-  // Dependencies for sbt-pmd plugin
-  val pmd = l ++= Seq(pmdDist)
+  
 }
