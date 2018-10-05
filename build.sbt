@@ -60,7 +60,7 @@
  */
 
 lazy val buildSettings = Dependencies.Versions ++
-  Maven.settings ++ Seq(
+  Publish.settings ++ Seq(
   organization := "com.geeoz.sbt",
   organizationName := "Geeoz Software",
   organizationHomepage := Some(new URL("http://www.geeoz.com")),
